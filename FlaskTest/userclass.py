@@ -2,10 +2,10 @@ import MySQLdb
 from flask_login import UserMixin
 
 class User(UserMixin):
-    def __init__(self, user_id, user_pass=None, user_name=None):
+    def __init__(self, user_id, user_pass=None, user_affiliation=None):
         self.user_id = user_id
         self.user_pass = user_pass
-        self.user_name = user_name
+        self.user_affiliation = user_affiliation
 
     def get(uid):
         db = MySQLdb.connect('localhost','root','1','timeseries')
@@ -20,8 +20,8 @@ class User(UserMixin):
             
             user_id = record[0]
             user_pass = record[1]
-            user_name = record[2]
-            return User(user_id,user_pass,user_name)
+            user_affiliation = record[2]
+            return User(user_id,user_pass,user_affiliation)
 
         return None
 
