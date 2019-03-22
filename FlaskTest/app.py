@@ -24,23 +24,6 @@ def user_loader(email):
     print('in user_loader')
     return User.get(uid=email)
 
-@login_manager.request_loader
-def request_loader(request):
-    email = request.form.get('email')
-    password = request.form.get('password')
-
-    user = User.get(uid=email)
-
-    print('in request_loader')
-
-    if(user == None):
-        return None
-    
-    if(user.check_authenticated(password=password)):
-        user.is_authenticated = True
-
-    return user
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
