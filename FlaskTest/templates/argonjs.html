@@ -6,10 +6,10 @@
     <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <!-- Icons -->
-<link href="../argon-design-system-master/argon-design-system-master/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-<link href="../argon-design-system-master/argon-design-system-master/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="../static/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+<link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <!-- Theme CSS -->
-<link type="text/css" href="../argon-design-system-master/argon-design-system-master/assets/css/argon.min.css" rel="stylesheet">
+<link type="text/css" href="../static/css/argon.min.css" rel="stylesheet">
 
 
 </head>
@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="#">Default Color</a>
+        <a class="navbar-brand" href="#">Web Time Series Forecasting</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,44 +68,17 @@
         </div>
     </div>
 </nav>
+{% block content %}
+{% endblock %}
 
-<div class="row">
-  <div class="col-md-4">
-      <button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default">Default</button>
-      <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-default">Chart</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-
-            <div class="modal-body">
-                <div id="chartContainer" style="height: 400px; width: 1000%;">
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-  </div>
-</div>
 
  <!--Core -->
-<script src="../argon-design-system-master/argon-design-system-master/assets/vendor/jquery/jquery.min.js"></script>
-<script src="../argon-design-system-master/argon-design-system-master/assets/vendor/popper/popper.min.js"></script>
-<script src="../argon-design-system-master/argon-design-system-master/assets/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="../static/vendor/jquery/jquery.min.js"></script>
+<script src="../static/vendor/popper/popper.min.js"></script>
+<script src="../static/vendor/bootstrap/bootstrap.min.js"></script>
 
 <!-- Theme JS -->
-<script src="../argon-design-system-master/argon-design-system-master/assets/js/argon.min.js"></script>
+<script src="../static/js/argon.min.js"></script>
 
 </body>
 </html>

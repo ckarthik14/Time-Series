@@ -1,0 +1,151 @@
+{% extends 'argonjs.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% block content %}
+    <div class="row">
+        <div class="col-1">
+
+        </div>
+    </div>
+    <br>
+    <form method='POST' action = "{{ url_for('search_page') }}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                    </div>
+                    <input class="form-control form-control-alternative" placeholder="Search" type="text" name ="search_text">
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                    </div>
+{#                          {% for page in pages %}#}
+{#                              <option value="{{ page}}"></option>#}
+{#                        {% endfor %}#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+    $(".js-example-tags").select2({
+     tags: true
+    });
+    </script>
+{#    <div class = class="input-group">#}
+{#        <input class="form-control form-control-alternative" placeholder="Search" type="text" name="search_text">#}
+{#        <input class="form-control col-sm-6" type="search" placeholder="Search" aria-label="Search" name="search_text">#}
+{#        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>#}
+{#    </div>#}
+    </form>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <script>
+                window.onload = function () {
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                zoomEnabled: true,
+                title:{
+                    text: "Website Traffic"
+                },
+                axisX:{
+                    valueFormatString: "DD MMM"
+                },
+                axisY: {
+                    title: "Number of Visitors",
+                    includeZero: false,
+                    scaleBreaks: {
+                        autoCalculate: true
+                    }
+                },
+
+                data: [{
+                    type: "line",
+                    xValueFormatString: "DD MMM",
+                    color: "#F08080",
+                    dataPoints: [
+                        { x: new Date(2017, 0, 1), y: 610 },
+                        { x: new Date(2017, 0, 2), y: 680 },
+                        { x: new Date(2017, 0, 3), y: 690 },
+                        { x: new Date(2017, 0, 4), y: 700 },
+                        { x: new Date(2017, 0, 5), y: 710 },
+                        { x: new Date(2017, 0, 6), y: 658 },
+                        { x: new Date(2017, 0, 7), y: 734 },
+                        { x: new Date(2017, 0, 8), y: 963 },
+                        { x: new Date(2017, 0, 9), y: 847 },
+                        { x: new Date(2017, 0, 10), y: 853 },
+                        { x: new Date(2017, 0, 11), y: 869 },
+                        { x: new Date(2017, 0, 12), y: 943 },
+                        { x: new Date(2017, 0, 13), y: 970 },
+                        { x: new Date(2017, 0, 14), y: 869 },
+                        { x: new Date(2017, 0, 15), y: 890 },
+                        { x: new Date(2017, 0, 16), y: 930 },
+                        { x: new Date(2017, 0, 17), y: 1850 },
+                        { x: new Date(2017, 0, 18), y: 1905 },
+                        { x: new Date(2017, 0, 19), y: 1980 },
+                        { x: new Date(2017, 0, 20), y: 1858 },
+                        { x: new Date(2017, 0, 21), y: 1034 },
+                        { x: new Date(2017, 0, 22), y: 963 },
+                        { x: new Date(2017, 0, 23), y: 847 },
+                        { x: new Date(2017, 0, 24), y: 853 },
+                        { x: new Date(2017, 0, 25), y: 869 },
+                        { x: new Date(2017, 0, 26), y: 943 },
+                        { x: new Date(2017, 0, 27), y: 970 },
+                        { x: new Date(2017, 0, 28), y: 869 },
+                        { x: new Date(2017, 0, 29), y: 890 },
+                        { x: new Date(2017, 0, 30), y: 930 },
+                        { x: new Date(2017, 0, 31), y: 750 }
+                    ]
+                }]
+                });chart.render();
+                }
+            </script>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default">Default</button>
+                <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="modal-title-default">Chart</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                            </div>
+
+                        <div class="modal-body">
+                            <div id="chartContainer" style="height: 400px; width: 100%;">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>
