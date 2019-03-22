@@ -1,4 +1,5 @@
-import MySQLdb
+#import MySQLdb
+import pymysql
 from flask_login import UserMixin
 
 class User(UserMixin):
@@ -8,7 +9,7 @@ class User(UserMixin):
         self.user_affiliation = user_affiliation
 
     def get(uid):
-        db = MySQLdb.connect('localhost','root','1','timeseries')
+        db = pymysql.connect('localhost','root','1','timeseries')
         cur = db.cursor()
 
         res = cur.execute("SELECT * FROM users WHERE user_id = %s", (uid,))
@@ -26,7 +27,7 @@ class User(UserMixin):
         return None
 
     def check_authenticated(self, password):
-        db = MySQLdb.connect('localhost','root','1','timeseries')
+        db = pymysql.connect('localhost','root','1','timeseries')
         cur = db.cursor()
         
         if(self.user_pass == str(password)):
